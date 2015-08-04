@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :components
+  resources :media
 
 
   get 'welcome/index'
