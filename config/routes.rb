@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :media
-
+  resources :media, only: [:index, :new, :create, :destroy]
 
   get 'welcome/index'
 

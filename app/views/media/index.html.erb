@@ -1,0 +1,8 @@
+<% if !flash[:notice].blank? %>
+  <div class="alert alert-info">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+<br />
+<%= link_to "New Media", new_medium_path, class: "button round" %>
+<br />
