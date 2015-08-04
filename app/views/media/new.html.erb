@@ -1,0 +1,21 @@
+<h1>New Media</h1>
+<%= form_for :media, url: media_path do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </p>
+
+  <p>
+    <%= f.label :attachment %><br>
+    <%= f.file_field :attachment%>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
