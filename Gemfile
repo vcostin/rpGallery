@@ -26,6 +26,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # foundation scc framework on sass gem
 gem 'foundation-rails'
 
+# imagemagick gem
+gem 'mini_magick'
+
 # gem for uploading files
 gem 'carrierwave'
 
