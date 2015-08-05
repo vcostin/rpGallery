@@ -11,7 +11,7 @@ class MediaController < ApplicationController
     # render plain: params[:medium].inspect
     @medium = Medium.new(medium_params)
 
-    if @medium
+    if @medium.save
       redirect_to media_path, notice: "The Media #{@medium.title} has been uploaded."
     else
       render "new"
@@ -20,8 +20,7 @@ class MediaController < ApplicationController
 
   def destroy
     @medium = Medium.find(params[:id])
-    if @medium
-      @medium.destroy
+    if @medium.destroy
       redirect_to media_path, notice: "The Media #{@medium.title} has been deleted."
     end
   end

@@ -18,3 +18,7 @@
 /log/*
 !/log/.keep
 /tmp
+
+# images upload folders
+/public/tmp
+/public/uploads
