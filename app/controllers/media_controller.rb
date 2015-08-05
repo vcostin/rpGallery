@@ -3,8 +3,16 @@ class MediaController < ApplicationController
     @media = Medium.all
   end
 
+  def show
+    @medium = Medium.find(params[:id])
+  end
+
   def new
     @medium = Medium.new
+  end
+
+  def edit
+    @medium = Medium.find(params[:id])
   end
 
   def create

@@ -1,0 +1,25 @@
+<h1>Edit Media <%= @medium.title %></h1>
+<%= form_for :medium, url: media_path do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title, value: @medium.title %>
+  </p>
+
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_area :description, value: @medium.description %>
+  </p>
+
+  <p>
+    <%= f.label :attachment %><br>
+    <%= f.file_field :attachment%>
+
+    <%= build_image_gallery @medium %>
+
+
+  </p>
+
+  <p>
+    <%= f.submit value: 'Update Media' %>
+  </p>
+<% end %>
