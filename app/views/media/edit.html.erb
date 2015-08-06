@@ -1,5 +1,20 @@
 <h1>Edit Media <%= @medium.title %></h1>
-<%= form_for :medium, url: media_path do |f| %>
+<%= form_for :medium, url: medium_path(@medium), method: :patch do |f| %>
+
+  <% if @medium.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@medium.errors.count, "error") %> prohibited
+        this media from being saved:
+      </h2>
+      <ul>
+        <% @medium.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <p>
     <%= f.label :title %><br>
     <%= f.text_field :title, value: @medium.title %>

@@ -26,6 +26,16 @@ class MediaController < ApplicationController
     end
   end
 
+  def update
+    @medium = Medium.find(params[:id])
+
+    if @medium.update(medium_params)
+      redirect_to media_path, notice: "The Media #{@medium.title} has been updated."
+    else
+      render 'edit'
+    end
+  end
+
   def destroy
     @medium = Medium.find(params[:id])
     if @medium.destroy

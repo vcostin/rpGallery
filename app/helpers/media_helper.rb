@@ -30,4 +30,8 @@ module MediaHelper
     end
   end
 
+  def alert_error_template(message)
+    li_wrapper message
+  end
+
 end
