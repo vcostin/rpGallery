@@ -1,28 +1,31 @@
-<br />
+<br/>
 <%= link_to "New Media", new_medium_path, class: "button round" %>
-<br />
-<br />
-<table class="table table-bordered table-striped">
-  <thead>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Download Link</th>
-    <th>Link to resource</th>
-    <th>Edit Media</th>
-    <th>&nbsp;</th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @media.each do |medium| %>
+<br/>
+<br/>
+<% unless @media.blank? %>
+  <table class="table table-bordered table-striped">
+    <thead>
     <tr>
-      <td><%= medium.title %></td>
-      <td><%= medium.description %></td>
-      <td><%= link_to "Download", medium.attachment_url %></td>
-      <td><%= link_to "View", medium %></td>
-      <td><%= link_to "Edit", edit_medium_path(medium.id) %></td>
-      <td><%= link_to "Delete",  medium, method: :delete, class: "button alert", data: { confirm: "Are you sure that you wish to delete #{medium.title}?" }  %></td>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Download Link</th>
+      <th>Link to resource</th>
+      <th>Edit Media</th>
+      <th>&nbsp;</th>
     </tr>
-  <% end %>
-  </tbody>
+    </thead>
+    <tbody>
+
+    <% @media.each do |medium| %>
+      <tr>
+        <td><%= medium.title %></td>
+        <td><%= medium.description %></td>
+        <td><%= link_to "Download", medium.attachment_url %></td>
+        <td><%= link_to "View", medium %></td>
+        <td><%= link_to "Edit", edit_medium_path(medium.id) %></td>
+        <td><%= link_to "Delete", medium, method: :delete, class: "button alert", data: {confirm: "Are you sure that you wish to delete #{medium.title}?"} %></td>
+      </tr>
+    <% end %>
+<% end %>
+</tbody>
 </table>
