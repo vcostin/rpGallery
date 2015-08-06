@@ -1,6 +1,6 @@
 module MediaHelper
 
-  def link_with_image(model_with_image, link_options: {class: "th [radius]"})
+  def link_with_image(model_with_image, link_options: {class: ["th", "[radius]"]})
     link_to model_with_image.attachment.url, link_options do
       image_tag model_with_image.attachment.thumb.url
     end
