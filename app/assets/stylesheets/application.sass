@@ -16,3 +16,16 @@
  *= require foundation_and_overrides
 
  */
+
+@import foundation/components/alert-boxes
+
+.notification-alert
+  &.--holder
+    position: relative
+    // now we know the alert-box height
+    height: $alert-padding-top + $alert-padding-bottom + $alert-bottom-margin + $alert-font-size + rem-calc($alert-border-width) * 2
+  &.--stash
+    position: absolute
+    width: 100%
+
+
