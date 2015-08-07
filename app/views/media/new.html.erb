@@ -1,5 +1,6 @@
 <h1>New Media</h1>
 <%= form_for :medium, url: media_path do |f| %>
+  <%= render "medium_validation_errors" %>
   <p>
     <%= f.label :title %><br>
     <%= f.text_field :title %>
@@ -12,7 +13,7 @@
 
   <p>
     <%= f.label :attachment %><br>
-    <%= f.file_field :attachment%>
+    <%= f.file_field :attachment %>
   </p>
 
   <p>

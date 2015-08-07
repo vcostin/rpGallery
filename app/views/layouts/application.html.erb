@@ -36,12 +36,7 @@
 
       <section class="main-section">
         <!-- content goes here -->
-        <% if !flash[:notice].blank? %>
-          <div data-alert class="alert-box success radius">
-            <%= flash[:notice] %>
-            <a href="#" class="close">&times;</a>
-          </div>
-        <% end %>
+        <%= render "layouts/notifications" %>
         <div class="row">
           <div class="large-12 columns">
             <%= yield %>

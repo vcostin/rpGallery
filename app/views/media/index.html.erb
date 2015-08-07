@@ -1,4 +1,4 @@
-<br/>
+<br />
 <%= link_to "New Media", new_medium_path, class: ["button", "round"] %>
 <br/>
 <br/>
@@ -22,7 +22,7 @@
         <td><%= medium.description %></td>
         <td><%= link_to "Download", medium.attachment_url %></td>
         <td><%= link_to "View", medium %></td>
-        <td><%= link_to "Edit", edit_medium_path(medium.id) %></td>
+        <td><%= link_to "Edit", edit_medium_path(medium) %></td>
         <td><%= link_to "Delete", medium, method: :delete, class: "button alert", data: {confirm: "Are you sure that you wish to delete #{medium.title}?"} %></td>
       </tr>
     <% end %>
