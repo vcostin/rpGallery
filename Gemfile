@@ -34,6 +34,9 @@ gem 'mini_magick'
 # gem for uploading files
 gem 'carrierwave'
 
+# authentication gem
+gem 'devise'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

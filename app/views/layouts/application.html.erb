@@ -1,54 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+  <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
 
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "vendor/modernizr" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
-  </head>
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "vendor/modernizr" %>
+  <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
 
-  <body>
-  <div class="off-canvas-wrap" data-offcanvas>
-    <div class="inner-wrap">
-      <nav class="tab-bar">
-        <section class="left-small">
-          <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
-        </section>
-
-        <section class="middle tab-bar-section">
-          <h1 class="title">Foundation</h1>
-        </section>
-
-      </nav>
-
-      <aside class="left-off-canvas-menu">
-        <ul class="off-canvas-list">
-          <li><label>Foundation</label></li>
-          <li><%=link_to "Media", media_path %></li>
-
-        </ul>
-      </aside>
-
-      <section class="main-section">
-        <!-- content goes here -->
-        <%= render "layouts/notifications" %>
-        <div class="row">
-          <div class="large-12 columns">
-            <%= yield %>
-          </div>
-        </div>
-
+<body>
+<div class="off-canvas-wrap" data-offcanvas>
+  <div class="inner-wrap">
+    <nav class="tab-bar">
+      <section class="left-small">
+        <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
       </section>
 
-      <a class="exit-off-canvas"></a>
+      <section class="right tab-bar-section">
+        <div>
+          <h1 class="title">rpGallery</h1>
 
-    </div>
+          <p>
+            <% if user_signed_in? %>
+              Logged in as <strong><%= current_user.email %></strong>.
+              <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+              <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
+            <% else %>
+              <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' %> |
+              <%= link_to "Login", new_user_session_path, :class => 'navbar-link' %>
+            <% end %>
+          </p>
+        </div>
+      </section>
+
+    </nav>
+
+    <aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        <li><label>rpGallery</label></li>
+        <li><%= link_to "Home", welcome_index_path %></li>
+        <li><%= link_to "Media", media_path %></li>
+
+      </ul>
+    </aside>
+
+    <section class="main-section">
+      <!-- content goes here -->
+      <%= render "layouts/notifications" %>
+      <div class="row">
+        <div class="large-12 columns">
+          <%= yield %>
+        </div>
+      </div>
+
+    </section>
+
+    <a class="exit-off-canvas"></a>
+
   </div>
+</div>
 
-  </body>
+</body>
 </html>

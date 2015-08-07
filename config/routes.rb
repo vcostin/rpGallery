@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   resources :media, only: [:index, :new, :create, :destroy, :show, :edit, :update]
 
   get 'welcome/index'
