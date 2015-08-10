@@ -37,6 +37,9 @@ gem 'carrierwave'
 # authentication gem
 gem 'devise'
 
+# role management
+gem 'rolify'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
