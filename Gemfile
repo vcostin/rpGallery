@@ -40,6 +40,9 @@ gem 'devise'
 # role management
 gem 'rolify'
 
+# role access
+gem 'cancancan'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
