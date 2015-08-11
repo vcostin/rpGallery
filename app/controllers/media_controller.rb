@@ -1,6 +1,6 @@
 class MediaController < ApplicationController
   def index
-    @media = Medium.all
+      @media = Medium.with_role(:owner, current_user)
   end
 
   def show
