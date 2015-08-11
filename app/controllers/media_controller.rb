@@ -20,6 +20,7 @@ class MediaController < ApplicationController
     @medium = Medium.new(medium_params)
 
     if @medium.save
+      current_user.add_role :owner, @medium
       redirect_to media_path, notice: "The Media #{@medium.title} has been uploaded."
     else
       render "new"
